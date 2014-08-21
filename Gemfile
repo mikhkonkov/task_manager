@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 group :development, :test do
+  gem 'spork-rails'
+  gem 'guard-spork'
   gem 'rspec-rails'
   gem 'foreman'
   gem 'sqlite3'
