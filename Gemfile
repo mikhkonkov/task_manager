@@ -32,6 +32,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
+gem 'simple_form'
+gem 'haml-rails'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
