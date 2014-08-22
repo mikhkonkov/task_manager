@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def new
-    @user = User.new
+    @user = UserRegistrationType.new
   end
 
   def show
@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = UserRegistrationType.new(user_params)
     if @user.save
       flash[:success] = "Welcome to the Task Manager!"
       redirect_to @user
