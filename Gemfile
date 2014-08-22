@@ -4,6 +4,7 @@ group :development, :test do
   gem 'spork-rails'
   gem 'guard-spork'
   gem 'rspec-rails'
+  gem 'rspec-its'
   gem 'foreman'
   gem 'sqlite3'
 end
@@ -29,6 +30,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'bootstrap-sass'
+gem 'bcrypt-ruby'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
