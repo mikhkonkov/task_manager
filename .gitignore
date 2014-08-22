@@ -30,3 +30,4 @@ config/secrets.yml
 bower_components/
 bower.json
 .bowerrc
+.keep
