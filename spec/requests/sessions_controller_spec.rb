@@ -9,10 +9,6 @@ describe "Authentication" do
 
     it { should have_content('Sign in')}
     it { should have_title('Sign in')}
-  end
-
-  describe "signin page" do
-    before { visit signin_path }
 
     describe "with valid information" do
       let(:user) { FactoryGirl.create(:user) }
