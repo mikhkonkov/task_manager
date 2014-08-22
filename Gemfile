@@ -34,6 +34,8 @@ gem 'bootstrap-sass'
 gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
 gem 'simple_form'
 gem 'haml-rails'
+gem 'validates'
+gem 'virtus'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
