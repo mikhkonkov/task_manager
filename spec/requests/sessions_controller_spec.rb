@@ -23,14 +23,14 @@ describe "Authentication" do
       end
 
       it { should have_title(user.name) }
-      # it { should have_link('Sign out',    href: signout_path) }
-      # it { should_not have_link('Sign in', href: signin_path) }
+      it { should have_link('Sign out',    href: signout_path) }
+      it { should_not have_link('Sign in', href: signin_path) }
     end
 
     describe "with invalid information" do
       before { click_button "Sign in" }
 
-      it { should have_selector('div.alert.alert-error') }
+      it { should have_selector('div.alert.alert-danger') }
     end
   end
 end

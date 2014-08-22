@@ -8,5 +8,12 @@ module Concerns
       session[:user_id] = nil
     end
 
+    def sign_in?
+      !current_user.nil?
+    end
+
+    def current_user
+      session[:user_id]
+    end
   end
 end

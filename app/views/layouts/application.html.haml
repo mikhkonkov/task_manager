@@ -15,10 +15,14 @@
             %ul.list-inline
               %li
                 %span.label= link_to "Home", root_path, class: "navbar-brand"
-              %li
-                %span.label= link_to "Registration", signup_path, class: "navbar-brand"
-              %li
-                %span.label= link_to "Sign in", signin_path, class: "navbar-brand"
+              - if sign_in?
+                %li
+                  %span.label= link_to "Sign out", signout_path, method: :delete, class: "navbar-brand"
+              - else
+                %li
+                  %span.label= link_to "Registration", signup_path, class: "navbar-brand"
+                %li
+                  %span.label= link_to "Sign in", signin_path, class: "navbar-brand"
     .container
       - flash.each do |key, value|
         %div{:class => "alert alert-#{key}"}= value

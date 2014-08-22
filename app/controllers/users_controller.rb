@@ -8,17 +8,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = UserRegistrationType.new(user_params)
+    @user = UserRegistrationType.new(params[:user])
     if @user.save
       flash[:success] = "Welcome to the Task Manager!"
       redirect_to @user
     else
-      render 'new'
+      render :new
     end
   end
 
-  private
-  def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
-  end
 end
