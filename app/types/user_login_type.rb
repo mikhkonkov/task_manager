@@ -1,5 +1,5 @@
 class UserLoginType
-  include ApplicationControllerWithoutActiveRecord
+  include ApplicationTypeWithoutActiveRecord
 
   attribute :email, String
   attribute :password, String
@@ -11,6 +11,14 @@ class UserLoginType
 
   def user
     ::User.where(email: email.mb_chars.downcase).first
+  end
+
+  private
+
+  def check_authenticate
+    if !user.try(:authenticate, password)
+      errors.add(:password, :user_or_password_invalid)
+    end
   end
 
 end
