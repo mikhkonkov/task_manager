@@ -1,0 +1,11 @@
+{
+  "name": "Task manager",
+  "repository": "https://github.com/mikhkonkov/task_manager/tree/develop",
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate"
+  },
+  "env": {
+    "RAILS_ENV": "production"
+  },
+  "addons": ["heroku-postgresql"]
+}
