@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
-  before_action :get_user, except: :show
-  before_action :find_task, only: [ :show, :edit ]
+  before_action :get_user
+  before_action :find_task, only: [ :show, :edit, :destroy ]
 
   def new
     @task = @user.created_tasks.build
@@ -33,6 +33,8 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    @task.destroy
+    redirect_to @user
   end
 
   private
