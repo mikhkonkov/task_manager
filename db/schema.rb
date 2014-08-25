@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20140825060621) do
 
   create_table "tasks", force: true do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description"
     t.integer  "creator_id"
     t.integer  "assigned_to_id"
     t.string   "state"

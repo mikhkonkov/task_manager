@@ -2,7 +2,7 @@ class CreateTasks < ActiveRecord::Migration
   def change
     create_table :tasks do |t|
       t.string :title
-      t.string :description
+      t.text :description
       t.belongs_to :creator
       t.belongs_to :assigned_to
       t.string :state

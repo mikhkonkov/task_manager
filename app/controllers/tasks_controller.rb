@@ -5,17 +5,15 @@ class TasksController < ApplicationController
   end
 
   def show
-
+    @task = Task.find(params[:id])
   end
 
   def create
     @user = current_user
     @task = TaskCreateType.new(params[:task])
-    # @task.save
-    # render plain: @task.errors.inspect
     if @task.save
       flash[:success] = "Task added"
-      redirect_to @user
+      redirect_to user_task_path(@user, @task)
     else
       render :new
     end
