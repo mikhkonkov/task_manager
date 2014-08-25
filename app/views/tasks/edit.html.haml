@@ -1,5 +1,5 @@
-- provide(:title, 'Add task')
-%h1 Add task
+- provide(:title, 'Update task')
+%h1 Update task
 .form-group
   .form-vertical
     = simple_form_for([@user, @task]) do |f|
@@ -7,4 +7,5 @@
       = f.input :title, input_html: { class: 'form-control' }
       = f.input :description, input_html: { class: 'form-control' }
       = f.association :assigned_to, :label_method => :name, :value_method => :id, :include_blank => false, input_html: { class: 'btn btn-default dropdown-toggle' }
-      = f.submit "Add task", class: "btn btn-large btn-primary"
+      = f.input :state, :collection => Task.state_machine.states.map { |s| s.name }, :include_blank => false, input_html: { class: 'btn btn-default dropdown-toggle' }
+      = f.submit "Update task", class: "btn btn-large btn-primary"
