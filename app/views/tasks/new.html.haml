@@ -1,0 +1,10 @@
+- provide(:title, 'Add task')
+%h1 Add task
+.form-group
+  .form-vertical
+    = simple_form_for([@user, @task]) do |f|
+      = f.association :creator, :as => :hidden, :value_method => :id
+      = f.input :title, input_html: { class: 'form-control' }
+      = f.input :description, input_html: { class: 'form-control' }
+      = f.association :assigned_to, :label_method => :name, :value_method => :id, input_html: { class: 'btn btn-default dropdown-toggle' }
+      = f.submit "Add task", class: "btn btn-large btn-primary"

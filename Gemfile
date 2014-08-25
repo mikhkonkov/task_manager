@@ -35,6 +35,7 @@ gem 'haml-rails'
 gem 'validates'
 gem 'virtus'
 gem 'pg'
+gem 'state_machine', github: "seuros/state_machine"
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

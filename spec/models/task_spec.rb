@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Task do
   let(:user) { FactoryGirl.create(:user) }
-  before { @task = user.created_tasks.build(title: "test task", discription: "test discription") }
+  before { @task = user.created_tasks.build(title: "test task", description: "test description") }
 
   subject { @task }
 
