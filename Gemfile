@@ -6,7 +6,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rspec-its'
   gem 'foreman'
-  gem 'sqlite3'
 end
 
 group :test do
@@ -16,7 +15,6 @@ group :test do
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
 
@@ -36,6 +34,7 @@ gem 'simple_form'
 gem 'haml-rails'
 gem 'validates'
 gem 'virtus'
+gem 'pg'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
