@@ -13,7 +13,7 @@ module Concerns
     end
 
     def current_user
-      session[:user_id]
+      @_current_user ||= User.where(id: session[:user_id]).first
     end
   end
 end
