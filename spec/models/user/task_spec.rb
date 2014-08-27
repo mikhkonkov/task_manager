@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Task do
+describe User::Task do
   let(:user) { FactoryGirl.create(:user) }
   before { @task = user.created_tasks.build(title: "test task", description: "test description") }
 

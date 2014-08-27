@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'spork'
 require 'capybara'
+require 'capybara/poltergeist'
 require 'factory_girl_rails'
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
@@ -20,6 +21,7 @@ Spork.prefork do
     config.order = "random"
     config.include Capybara::DSL
   end
+
 end
 
 Spork.each_run do

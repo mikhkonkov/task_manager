@@ -10,7 +10,7 @@ class Users::TasksController < ApplicationController
   end
 
   def create
-    @task = TaskCreateType.new(params[:task])
+    @task = User::TaskCreateType.new(params[:user_task])
     if @task.save
       flash[:success] = "Task added"
       redirect_to user_task_path(@user, @task)
@@ -23,8 +23,8 @@ class Users::TasksController < ApplicationController
   end
 
   def update
-    @task = TaskCreateType.find(params[:id])
-    if @task.update(params[:task])
+    @task = User::TaskCreateType.find(params[:id])
+    if @task.update(params[:user_task])
       flash[:success] = "Task updated"
       redirect_to user_task_path(@user, @task)
     else
@@ -52,6 +52,6 @@ class Users::TasksController < ApplicationController
   end
 
   def find_task
-    @task = Task.find(params[:id])
+    @task = User::Task.find(params[:id])
   end
 end
