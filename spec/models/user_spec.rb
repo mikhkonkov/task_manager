@@ -49,9 +49,5 @@ describe "User model" do
       it { should_not eq user_for_invalid_password }
     end
 
-    context "with short password" do
-      before { subject.password = subject.password_confirmation = "a" * 5 }
-      it { should_not be_valid }
-    end
   end
 end

@@ -1,19 +1,19 @@
 require 'rails_helper'
 
-describe TasksController do
+describe Users::TasksController do
   subject { page }
   let(:user) { FactoryGirl.create(:user) }
-  let(:task) { FactoryGirl.create(:task) }
+  # let(:task) { FactoryGirl.create('user/task') }
 
   describe "Create task" do
-    before { visit new_user_task_path(user, task)}
+    before { visit new_user_task_path(user)}
     let(:submit) { "Add task" }
 
     it { should have_content('Add task') }
 
     describe "with invalid information" do
       it "should not create a task" do
-        expect { click_button submit }.not_to change(Task, :count)
+        expect { click_button submit }.not_to change(User::Task, :count)
       end
     end
 
@@ -25,17 +25,8 @@ describe TasksController do
       end
 
       it "should create a task" do
-        expect { click_button submit }.to change(Task, :count).by(1)
+        expect { click_button submit }.to change(User::Task, :count).by(1)
       end
     end
   end
-
-  # describe "Delete task" do
-  #   before { visit user_task_path(user, task)}
-  #   it "should destroy a task" do
-  #     subject.save_and_open_page
-  #     expect { click_link 'Destroy' }.to change(Task, :count).by(-1)
-  #   end
-  # end
-
 end

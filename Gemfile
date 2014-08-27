@@ -9,8 +9,10 @@ group :development, :test do
 end
 
 group :test do
+  gem 'wrong'
   gem 'selenium-webdriver'
   gem 'capybara'
+  gem 'poltergeist'
   gem 'factory_girl_rails'
 end
 

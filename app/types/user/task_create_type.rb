@@ -1,4 +1,4 @@
-class TaskCreateType < Task
+class User::TaskCreateType < User::Task
   include ApplicationType
 
   validates :title, presence: true

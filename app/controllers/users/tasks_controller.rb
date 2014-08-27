@@ -1,6 +1,6 @@
-class TasksController < ApplicationController
+class Users::TasksController < ApplicationController
   before_action :get_user
-  before_action :find_task, only: [ :show, :edit, :destroy ]
+  before_action :find_task, only: [ :show, :edit, :destroy, :done ]
 
   def new
     @task = @user.created_tasks.build
@@ -10,7 +10,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = TaskCreateType.new(params[:task])
+    @task = User::TaskCreateType.new(params[:user_task])
     if @task.save
       flash[:success] = "Task added"
       redirect_to user_task_path(@user, @task)
@@ -23,8 +23,8 @@ class TasksController < ApplicationController
   end
 
   def update
-    @task = TaskCreateType.find(params[:id])
-    if @task.update(params[:task])
+    @task = User::TaskCreateType.find(params[:id])
+    if @task.update(params[:user_task])
       flash[:success] = "Task updated"
       redirect_to user_task_path(@user, @task)
     else
@@ -37,12 +37,21 @@ class TasksController < ApplicationController
     redirect_to @user
   end
 
+  def done
+    if @task.close
+      flash[:success] = "Task is closed"
+    else
+      flash[:danger] = "Task is not closed"
+    end
+    redirect_to user_task_path @user, @task
+  end
+
   private
   def get_user
     @user = User.find(params[:user_id])
   end
 
   def find_task
-    @task = Task.find(params[:id])
+    @task = User::Task.find(params[:id])
   end
 end
