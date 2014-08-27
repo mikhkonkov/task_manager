@@ -1,0 +1,5 @@
+%h1 Admin::Users#edit
+= simple_form_for(@user, url: admin_user_path(@user)) do |f|
+  = f.input :name
+  = f.input :email
+  = f.submit :submit

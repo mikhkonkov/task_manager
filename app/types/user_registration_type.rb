@@ -1,6 +1,8 @@
 class UserRegistrationType < User
   include ApplicationType
 
+  validates :password, presence: true, length: { minimum: 6 }
+
   permit :email, :password, :password_confirmation, :name
 
   def email=(email)
