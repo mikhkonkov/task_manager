@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-describe TasksController do
+describe Users::TasksController do
   subject { page }
   let(:user) { FactoryGirl.create(:user) }
-  let(:task) { FactoryGirl.create(:task) }
+  let(:task) { FactoryGirl.create('user/task') }
 
   describe "Create task" do
     before { visit new_user_task_path(user, task)}
