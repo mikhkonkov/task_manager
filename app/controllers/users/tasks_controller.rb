@@ -1,6 +1,6 @@
-class TasksController < ApplicationController
+class Users::TasksController < ApplicationController
   before_action :get_user
-  before_action :find_task, only: [ :show, :edit, :destroy ]
+  before_action :find_task, only: [ :show, :edit, :destroy, :done ]
 
   def new
     @task = @user.created_tasks.build
@@ -35,6 +35,15 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     redirect_to @user
+  end
+
+  def done
+    if @task.close
+      flash[:success] = "Task is closed"
+    else
+      flash[:danger] = "Task is not closed"
+    end
+    redirect_to user_task_path @user, @task
   end
 
   private
