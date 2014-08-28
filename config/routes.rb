@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     resources :users do
       scope module: :users do
         resources :tasks do
+          scope module: :tasks do
+            resources :comments
+          end
         end
       end
     end
