@@ -6,5 +6,5 @@ class User::TaskCreateType < User::Task
   validates :state, presence: true
   validates :creator, presence: true
 
-  permit :title, :description, :state, :creator_id, :assigned_to_id
+  permit :title, :description, :state, :state_event, :creator_id, :assigned_to_id
 end

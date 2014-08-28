@@ -21,7 +21,7 @@ describe Users::TasksController do
       before do
         fill_in "Title",         with: "Test task"
         fill_in "Description",   with: "test test test test"
-        find("option[value='opened']").click
+        find("option[value='close']").click
       end
 
       it "should create a task" do
