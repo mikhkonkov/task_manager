@@ -1,3 +1,9 @@
+require 'coveralls'
+if ENV['TRAVIS']
+  require 'coveralls'
+  Coveralls.wear!
+end
+
 ENV['RAILS_ENV'] = 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
@@ -25,7 +31,7 @@ class ActiveSupport::TestCase
 end
 
 class ActionDispatch::IntegrationTest
- setup do
-   Capybara.app_host = Capybara.default_host
- end
+  setup do
+    Capybara.app_host = Capybara.default_host
+  end
 end

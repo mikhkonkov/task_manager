@@ -3,6 +3,11 @@ require 'spork'
 require 'capybara'
 require 'capybara/poltergeist'
 require 'factory_girl_rails'
+require 'coveralls'
+if ENV['TRAVIS']
+  require 'coveralls'
+  Coveralls.wear!
+end
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
 
