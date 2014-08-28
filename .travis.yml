@@ -2,3 +2,5 @@ rvm:
   - 2.1.1
 before_script:
   - bin/rake db:create db:migrate
+script: "bundle exec rake test"
+script: "bundle exec rspec"
