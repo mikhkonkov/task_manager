@@ -1,0 +1,1 @@
+= select_tag :id, options_for_select(@users.collect { |u| [u.name, u.id] }), class: 'form-control', data: { remote: true, url: fetch_user_admin_users_path }, prompt: "don't selected"
