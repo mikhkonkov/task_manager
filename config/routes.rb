@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users do
+      collection do
+        get :fetch_user
+      end
       scope module: :users do
         resources :tasks do
         end

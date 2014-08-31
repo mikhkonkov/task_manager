@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-  before_action :get_user, except: :index
+  before_action :get_user, except: [ :index, :fetch_user ]
 
   def index
     @users = User.all
@@ -22,6 +22,13 @@ class Admin::UsersController < ApplicationController
   def destroy
     @user.destroy
     redirect_to admin_users_path
+  end
+
+  def fetch_user
+    @selected = params[:id].present? ? User.where(id: params[:id]) : User.all
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
