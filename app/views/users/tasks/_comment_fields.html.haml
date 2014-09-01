@@ -1,0 +1,5 @@
+.nested-fields
+  = f.input :content
+  = f.hidden_field :user_id, value: @user.id
+  = f.hidden_field :task_id
+  = link_to_remove_association "remove comment", f
