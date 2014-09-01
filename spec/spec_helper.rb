@@ -1,18 +1,19 @@
+if ENV['TRAVIS']
+  require 'coveralls'
+  Coveralls.wear!
+end
+ENV['RAILS_ENV'] ||= 'test'
 require 'rubygems'
 require 'spork'
 require 'capybara'
 require 'capybara/poltergeist'
 require 'factory_girl_rails'
 require 'coveralls'
-if ENV['TRAVIS']
-  require 'coveralls'
-  Coveralls.wear!
-end
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
 
+
 Spork.prefork do
-  ENV["RAILS_EVN"] ||= 'test'
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
   # require 'rspec/autorun'
