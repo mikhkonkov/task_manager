@@ -26,6 +26,7 @@ config/secrets.yml
 .rvmrc
 
 *.swp
+*.swo
 
 bower_components/
 bower.json

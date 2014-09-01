@@ -54,6 +54,7 @@ GEM
     childprocess (0.5.3)
       ffi (~> 1.0, >= 1.0.11)
     cliver (0.3.2)
+    cocoon (1.2.6)
     coderay (1.1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -265,6 +266,7 @@ DEPENDENCIES
   bootstrap-sass
   bower-rails
   capybara
+  cocoon
   coffee-rails (~> 4.0.0)
   factory_girl_rails
   foreman
