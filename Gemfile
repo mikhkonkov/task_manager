@@ -41,6 +41,8 @@ gem 'virtus'
 gem 'pg'
 gem 'state_machine', github: "seuros/state_machine"
 gem "cocoon"
+gem 'carrierwave'
+gem 'mini_magick'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

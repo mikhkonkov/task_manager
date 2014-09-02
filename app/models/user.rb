@@ -7,5 +7,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, email: true, uniqueness: true
   validates :password_digest, presence: true
 
+  mount_uploader :avatar, AvatarUploader
+
   has_secure_password
 end
