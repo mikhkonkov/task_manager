@@ -2,6 +2,11 @@ class Users::TasksController < ApplicationController
   before_action :get_user
   before_action :find_task, only: [ :show, :edit, :destroy, :done ]
 
+  def index
+    @created_tasks = @user.created_tasks
+    @assigned_tasks = @user.assigned_tasks
+  end
+
   def new
     @task = @user.created_tasks.build
   end
