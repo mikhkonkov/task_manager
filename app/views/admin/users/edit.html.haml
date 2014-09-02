@@ -1,5 +1,8 @@
 %h1 Admin::Users#edit
-= simple_form_for(@user, url: admin_user_path(@user)) do |f|
+= simple_form_for(@user, url: admin_user_path(@user), :html => {:multipart => true}) do |f|
   = f.input :name
   = f.input :email
+  = image_tag(@user.avatar_url) #if @user.avatar?
+  = f.file_field :avatar
+  = f.hidden_field :avatar_cache
   = f.button :submit
