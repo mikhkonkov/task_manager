@@ -2,7 +2,8 @@ class Admin::UsersController < ApplicationController
   before_action :get_user, except: [ :index, :fetch_user ]
 
   def index
-    @users = User.all
+    @search = User.ransack(params[:q])
+    @users = @search.result(distinct: true)
   end
 
   def edit
@@ -25,7 +26,11 @@ class Admin::UsersController < ApplicationController
   end
 
   def fetch_user
-    @selected = params[:id].present? ? User.where(id: params[:id]) : User.all
+    if params[:id].present?
+      @users = User.where(id: params[:id])
+    else
+      index
+    end
     respond_to do |format|
       format.js
     end

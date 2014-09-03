@@ -1,5 +1,9 @@
 %h1 Admin::Users#index
 .grid
   = render 'select_user'
+  = simple_form_for @search, url: admin_users_path, method: :get do |f|
+    = f.input :name_cont, placeholder: 'name', label: false
+    = f.input :email_cont, placeholder: 'email', label: false
+    = f.button :submit, 'Search'
   #items_grid
-    = render partial: 'items_list', locals: { items: @users }
+    = render partial: 'items_list', locals: { items: @users, search: @search }
