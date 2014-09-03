@@ -1,0 +1,2 @@
+$('#created_tasks').html("#{escape_javascript(render(partial: 'column_tasks', locals: { tasks: @created_tasks }))}");
+$('#assigned_tasks').html("#{escape_javascript(render(partial: 'column_tasks', locals: { tasks: @assigned_tasks }))}");

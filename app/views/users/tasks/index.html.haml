@@ -1,0 +1,12 @@
+- provide(:title, 'Tasks')
+= form_tag(search_user_tasks_path, remote: true, method: :get) do
+  = text_field_tag :q
+  = submit_tag :Search
+.col-md-6
+  %h2 Created tasks:
+  #created_tasks
+    = render partial: 'column_tasks', locals: { tasks: @created_tasks }
+.col-md-6
+  %h2 Assigned tasks:
+  #assigned_tasks
+    = render partial: 'column_tasks', locals: { tasks: @assigned_tasks }

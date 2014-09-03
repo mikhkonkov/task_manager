@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   resources :users do
     scope module: :users do
       resources :tasks do
+        collection do
+          get :search
+        end
         member do
           get :done
         end

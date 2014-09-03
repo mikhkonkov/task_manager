@@ -2,6 +2,11 @@ class Users::TasksController < ApplicationController
   before_action :get_user
   before_action :find_task, only: [ :show, :edit, :destroy, :done ]
 
+  def index
+    @created_tasks = @user.created_tasks
+    @assigned_tasks = @user.assigned_tasks
+  end
+
   def new
     @task = @user.created_tasks.build
   end
@@ -44,6 +49,22 @@ class Users::TasksController < ApplicationController
       flash[:danger] = "Task is not closed"
     end
     redirect_to user_task_path @user, @task
+  end
+
+  def search
+    query = params[:q]
+    if query.present?
+      tasks = User::Task.search(query).records
+      @created_tasks = tasks.where(creator_id: @user.id)
+      @assigned_tasks = tasks.where(assigned_to_id: @user.id)
+    else
+      @created_tasks = @user.created_tasks
+      @assigned_tasks = @user.assigned_tasks
+    end
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   private

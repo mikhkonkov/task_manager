@@ -1,0 +1,5 @@
+- if tasks.present?
+  - tasks.each do |t|
+    = render partial: 'task', locals: { task: t }
+- else
+  %p Tasks not found

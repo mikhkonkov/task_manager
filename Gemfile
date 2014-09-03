@@ -43,6 +43,8 @@ gem 'state_machine', github: "seuros/state_machine"
 gem "cocoon"
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

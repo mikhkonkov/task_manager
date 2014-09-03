@@ -1,0 +1,23 @@
+.panel.panel-primary
+  .panel-heading
+    %h3.panel-title
+      = task.title
+  .panel-body
+    %table.table
+      %tr
+        %td
+          = task.description
+      %tr
+        %td
+          %strong assigned to:
+          = task.assigned_to.name unless task.assigned_to.nil?
+        %td
+          %strong creator:
+          = task.creator.name
+        %td
+          %strong state:
+          = task.state
+  .panel-footer.text-right
+    = link_to 'Done', done_user_task_path(@user, task), class: 'btn btn-success'
+    = link_to 'Edit', edit_user_task_path(@user, task), class: 'btn btn-success'
+    = link_to 'Destroy', user_task_path(@user, task), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
