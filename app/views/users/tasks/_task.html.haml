@@ -3,17 +3,21 @@
     %h3.panel-title
       = task.title
   .panel-body
-    = task.description
-    %p.text-right
-      %strong assigned to:
-      = task.assigned_to.name unless task.assigned_to.nil?
-    %p.text-right
-      %strong creator:
-      = task.creator.name
-    %p.text-right
-      %strong state:
-      = task.state
-%p.text-right
-  = link_to 'Done', done_user_task_path(@user, task), class: 'btn btn-success'
-  = link_to 'Edit', edit_user_task_path(@user, task), class: 'btn btn-success'
-  = link_to 'Destroy', user_task_path(@user, task), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+    %table.table
+      %tr
+        %td
+          = task.description
+      %tr
+        %td
+          %strong assigned to:
+          = task.assigned_to.name unless task.assigned_to.nil?
+        %td
+          %strong creator:
+          = task.creator.name
+        %td
+          %strong state:
+          = task.state
+  .panel-footer.text-right
+    = link_to 'Done', done_user_task_path(@user, task), class: 'btn btn-success'
+    = link_to 'Edit', edit_user_task_path(@user, task), class: 'btn btn-success'
+    = link_to 'Destroy', user_task_path(@user, task), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'

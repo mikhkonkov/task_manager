@@ -51,6 +51,22 @@ class Users::TasksController < ApplicationController
     redirect_to user_task_path @user, @task
   end
 
+  def search
+    query = params[:q]
+    if query.present?
+      tasks = User::Task.search(query).records
+      @created_tasks = tasks.where(creator_id: @user.id)
+      @assigned_tasks = tasks.where(assigned_to_id: @user.id)
+    else
+      @created_tasks = @user.created_tasks
+      @assigned_tasks = @user.assigned_tasks
+    end
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
   def get_user
     @user = User.find(params[:user_id])
