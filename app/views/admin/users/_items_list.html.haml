@@ -1,8 +1,16 @@
 %table.table
   %thead
     %tr
-      %th Name
-      %th Email
+      %th
+        - if search.present?
+          = sort_link(search, :name)
+        -else
+          = "Name"
+      %th
+        - if search.present?
+          = sort_link(search, :email)
+        -else
+          = "Email"
       %th Edit
       %th Destroy
   - items.each do |user|

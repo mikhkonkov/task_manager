@@ -1,1 +1,1 @@
-$('#items_grid').html("#{escape_javascript(render(partial: 'items_list', locals: { items: @selected }))}");
+$('#items_grid').html("#{escape_javascript(render(partial: 'items_list', locals: { items: @users, search: @search }))}");
