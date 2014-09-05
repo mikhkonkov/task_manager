@@ -21,4 +21,8 @@ class User::Task < ActiveRecord::Base
       transition [:opened] => :closed
     end
   end
+
+  def self.search_with_elasticsearch(*args)
+    __elasticsearch__.search(*args)
+  end
 end

@@ -54,7 +54,7 @@ class Users::TasksController < ApplicationController
   def search
     query = params[:q]
     if query.present?
-      tasks = User::Task.search(query).records
+      tasks = User::Task.search_with_elasticsearch(query).records
       @created_tasks = tasks.where(creator_id: @user.id)
       @assigned_tasks = tasks.where(assigned_to_id: @user.id)
     else
